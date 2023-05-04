@@ -2,26 +2,139 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: #feb556;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    height: 2px;
+    background: black;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c0a0b9;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.layout-component {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.half-screen-size {
+  height: 50vh;
+  height: 50svh;
+}
+
+.top-bar{
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  background: black;
+  transition: transform 0.3s ease-out;
+}
+
+.top-bar.bar-hidden{
+  transform:translateY(-60px);
+}
+
+.logo-container{
+  position: fixed;
+  z-index: 3;
+  top: 7.5px;
+  left: 5px;
+  padding: 5px 0px;
+  height: 35px;
+}
+
+.logo-container:hover{
+  cursor: pointer;
+}
+
+nav a {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+nav a:last-child {
+  background-color: #feb556;
+  height: 28px;
+  transition: all 0.3s ease-out;
+}
+
+nav a::after{
+  content:'';
+  display: block;
+  background: white;
+  height: 1px;
+  width: 100%;
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+  transform: scaleX(0)
+}
+
+nav a:hover::after{
+  transform: scaleX(1);
+}
+
+nav a:last-child:hover, .active-cart{
+  background-color: white !important;
+}
+
+.active-link::after{
+  content:'';
+  background: white;
+  height: 1px;
+  width: 100%;
+  transform: scaleX(1);
+}
+
+section h2::after {
+  content: '';
+  margin-top: 10px;
+  margin-bottom: 40px;
+  display: block;
+  background-color: white;
+  height: 1px;
+  width:50%;
+  margin-left: 25%;
+}
+
+.comment-box{
+  width: 350px;
+  margin: 0px 50px;
+}
+
+.page-container{
+  animation-name: fade-in;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+}
+
+.footer-container{
+  width: 80%;
+  border-right: 1px solid #feb556;
+  border-left: 1px solid #feb556;
+}
+
+@keyframes fade-in{
+  0%{
+      opacity:0%;
+  }
+  100%{
+      opacity: 100%;
+  }
 }
