@@ -18,7 +18,7 @@ const ProductGrid = ({productos}) => {
             :
             productos.map(producto =>{
                 return(
-                    <div key={generarId()} className='h-400px w-80 m-5 rounded-md hover:bg-slate-900'>
+                    <div key={generarId()} className='h-400px w-80 m-5 rounded-md hover:bg-secondary-dark'>
                         <div className='h-1/2'>
                             <div className='flex flex-col justify-center w-full h-full'>
                                 <Image src={producto.imagen} height={200} width={200} style={{objectFit: "contain"}} className='mx-auto max-h-48' alt={producto.titulo}/>

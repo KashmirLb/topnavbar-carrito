@@ -71,7 +71,7 @@ const ProductLayout = ({categoria, productos}) => {
                 <span className='pr-2 font-bold'>Buscar: </span>
                 <input 
                     type="text" 
-                    className='text-black px-2' 
+                    className='text-primary-dark px-2' 
                     placeholder="Marca, nombre..." 
                     value={searchText} 
                     onChange={e => setSearchText(e.target.value)}
@@ -80,27 +80,27 @@ const ProductLayout = ({categoria, productos}) => {
             <div className='flex my-auto flex-wrap'>
                 <span className='font-bold pr-4 my-2'>Precio: </span>
                 <div className='relative my-2'>
-                    <input type="text" className='text-black px-2' value={searchPriceMin} onChange={e=>isNumberMin(e)}/>
-                    <span className='absolute right-1 z-10 text-slate-400'>€ min.</span>
+                    <input type="text" className='text-primary-dark px-2' value={searchPriceMin} onChange={e=>isNumberMin(e)}/>
+                    <span className='absolute right-1 z-10 text-primary-medium'>€ min.</span>
                 </div>
                 <span className="px-2 my-2">-</span>
                 <div className='relative my-2'>
-                    <input type="text" className='text-black px-2' value={searchPriceMax} onChange={e=>isNumberMax(e)}/>
-                    <span className='absolute right-1 z-10 text-slate-400'>€ max.</span>
+                    <input type="text" className='text-primary-dark px-2' value={searchPriceMax} onChange={e=>isNumberMax(e)}/>
+                    <span className='absolute right-1 z-10 text-primary-medium'>€ max.</span>
                 </div>
             </div>
             <div className='flex my-auto '>
                 <span className='font-bold pr-3'>Categoría: </span>
-                <select className='text-black w-44 pl-2' onChange={e => cambiarCategoria(e)} defaultValue={route.pathname}>
+                <select className='text-primary-dark w-44 pl-2' onChange={e => cambiarCategoria(e)} defaultValue={route.pathname}>
                     <option value="/productos/ordenadores-mesa">Ordenadores</option>
                     <option value="/productos/portatiles">Portátiles</option>
                     <option value="/productos/componentes">Componentes</option>
                     <option value="/productos/accesorios">Accesorios</option>
                 </select>
             </div>
-            <div className='flex my-auto bg-slate-800 '>
+            <div className='flex my-auto bg-secondary-dark '>
                 <span className='font-bold pr-3'>Orden: </span>
-                <select className='text-black w-44 pl-2' onChange={e=>changeOrder(e)}>
+                <select className='text-primary-dark w-44 pl-2' onChange={e=>changeOrder(e)}>
                     <option value="marca">Por marca</option>
                     <option value="bajo">Precio más bajo</option>
                     <option value="alto">Precio más alto</option>

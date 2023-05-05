@@ -8,6 +8,7 @@
   --background-site: #000;
   --primary-light: #fff;
   --primary-dark: #000;
+  --primary-medium: rgb(100 116 139);
   --secondary-light: #FFF7EB;
   --secondary-dark: rgb(30 41 59);
 }

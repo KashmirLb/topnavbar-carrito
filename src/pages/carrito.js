@@ -46,7 +46,7 @@ const Carrito = () => {
                 </div>
                 <div className='w-full h-1/3 text-end'>
                   <div className="py-4 flex justify-end px-10 gap-5">
-                    <button className="bg-secondary-dark hover:bg-slate-700 hover:text-primary-site flex gap-2 px-5 py-2 text-primary-light rounded-md shadow-md mt-3">Ver Producto</button>
+                    <button className="bg-secondary-dark hover:bg-secondary-dark hover:text-primary-site flex gap-2 px-5 py-2 text-primary-light rounded-md shadow-md mt-3">Ver Producto</button>
                     <button 
                       className="bg-red-800 hover:bg-red-700 flex gap-2 px-5 py-2 text-primary-light rounded-md shadow-md mt-3"
                       onClick={()=>eliminarProducto(producto)}
@@ -66,7 +66,7 @@ const Carrito = () => {
                   !carrito || carrito?.length === 0 ? <li>No hay productos en el carrito</li>
                   : 
                     carrito.map(producto =>
-                      <li className='py-2 border-b border-slate-500 flex justify-between text-sm' key={generarId()}>
+                      <li className='py-2 border-b border-primary-medium flex justify-between text-sm' key={generarId()}>
                         <div className='w-1/2'>{producto.titulo}</div>
                         <span className='text-xs text-primary-site mt-auto'>x1</span>
                         <div className='mt-auto'>{producto.precio} €</div>
@@ -79,7 +79,7 @@ const Carrito = () => {
                 <p className="text-2xl mt-auto">{!carrito || carrito?.length===0 ? 0 : carrito.reduce((total, prod)=> total+prod.precio, 0)}€</p>
               </div>
               <div className='flex justify-end pt-8'>
-                <button className='bg-primary-site w-44 h-12 text-black text-xl font-bold tracking-wider hover:bg-primary-light uppercase'>
+                <button className='bg-primary-site w-44 h-12 text-primary-dark text-xl font-bold tracking-wider hover:bg-primary-light uppercase'>
                   Pagar
                 </button>
               </div>

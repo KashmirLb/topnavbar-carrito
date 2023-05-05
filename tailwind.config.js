@@ -18,6 +18,7 @@ module.exports = {
         'secondary-site': 'var(--secondary-site',
         'background-site': 'var(--background-site)',
         'primary-light': 'var(--primary-light)',
+        'primary-medium': 'var(--primary-medium)',
         'primary-dark': 'var(--primary-dark)',
         'secondary-light': 'var(--secondary-light)',
         'secondary-dark': 'var(--secondary-dark)'
@@ -27,6 +28,7 @@ module.exports = {
         'secondary-site': 'var(--secondary-site',
         'background-site': 'var(--background-site)',
         'primary-light': 'var(--primary-light)',
+        'primary-medium': 'var(--primary-medium)',
         'primary-dark': 'var(--primary-dark)',
         'secondary-light': 'var(--secondary-light)',
         'secondary-dark': 'var(--secondary-dark)'
@@ -36,6 +38,7 @@ module.exports = {
         'secondary-site': 'var(--secondary-site',
         'background-site': 'var(--background-site)',
         'primary-light': 'var(--primary-light)',
+        'primary-medium': 'var(--primary-medium)',
         'primary-dark': 'var(--primary-dark)',
         'secondary-light': 'var(--secondary-light)',
         'secondary-dark': 'var(--secondary-dark)'

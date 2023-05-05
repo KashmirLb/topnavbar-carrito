@@ -37,7 +37,7 @@ const FormEmailAndMessage = ({formLink}) => {
             field="message"
             errors={state.errors}
           />
-          <button type="submit" disabled={state.submitting} className='bg-primary-site w-44 h-12 text-black text-xl font-bold tracking-wider uppercase'>
+          <button type="submit" disabled={state.submitting} className='bg-primary-site w-44 h-12 text-primary-dark text-xl font-bold tracking-wider uppercase'>
             Enviar
           </button>
         </form>

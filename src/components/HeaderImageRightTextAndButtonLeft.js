@@ -11,7 +11,7 @@ const HeaderImageRightTextAndButtonLeft = ({headerItems}) => {
         <h1 className='text-4xl font-semibold py-10 tracking-wide text-primary-light'>
           {text}
         </h1>
-        <button className='bg-primary-site hover:bg-primary-light w-64 h-16 text-black text-3xl font-bold tracking-wider uppercase'>
+        <button className='bg-primary-site hover:bg-primary-light w-64 h-16 text-primary-dark text-3xl font-bold tracking-wider uppercase'>
           {buttonText}
         </button>
       </div>
