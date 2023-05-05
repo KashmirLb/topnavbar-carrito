@@ -14,7 +14,7 @@ const ProductGrid = ({productos}) => {
 
   return (
     <div className='w-full flex flex-wrap justify-center'>
-        {!productos || productos?.length===0 ? <div className='text-center text-white'>No se encontraron productos.</div> 
+        {!productos || productos?.length===0 ? <div className='text-center text-primary-light'>No se encontraron productos.</div> 
             :
             productos.map(producto =>{
                 return(

@@ -11,7 +11,7 @@ const Contacto = () => {
     <Layout page={"Contacto"}>
       <header hidden><h1>Contacto</h1></header>
       <main>
-        <div className='p-40 pb-32 text-white md:flex gap-10'>
+        <div className='p-40 pb-32 text-primary-light md:flex gap-10'>
           <IconLeftTextRight iconText={contatInfo} />
           <div className='lg:w-2/4 w-full'>
             <FormEmailAndMessage formLink={"xwkjyovd"} />

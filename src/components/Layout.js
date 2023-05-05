@@ -2,6 +2,8 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import NavBarLinksAndCart from './NavBarLinksAndCart'
+import { carritoLink, navLinks } from '@/data/navLinks'
 
 const Layout = ({children, page}) => {
 
@@ -29,21 +31,13 @@ const Layout = ({children, page}) => {
                 <Image src="/easy-gaming.png" alt="easy-gaming logo" height={35} width={172}/>
             </div>
             <div className={`top-bar ${!menuShows ? 'bar-hidden' : ''}`}>
-                <nav className="text-white no-underline visited:text-white flex w-4/5 justify-around">
-                    <Link href="/" className={page==="Main Page" ? 'active-link' : ""}>Inicio</Link>
-                    <Link href="/productos" className={page==="Productos" ? 'active-link' : ""}>Productos</Link>
-                    <Link href="/tiendas" className={page==="Tiendas" ? 'active-link' : ""}>Tiendas</Link>
-                    <Link href="/contacto" className={page==="Contacto" ? 'active-link' : ""}>Contacto</Link>
-                    <Link href="/carrito" className={page==="Carrito" ? 'active-cart' : ""}>
-                        <Image src="/grocery-store-empty.png" height={30} width={30} alt="shopping cart"/>
-                    </Link>
-                </nav>
+                <NavBarLinksAndCart links={navLinks} cart={carritoLink} currentPage={page}/>
             </div>
             <div className='page-container'>
                 {children}
             </div>
         </div>
-        <footer className='text-white bg-slate-800 p-10 flex justify-center relative'>
+        <footer className='text-primary-light bg-secondary-dark p-10 flex justify-center relative'>
             <div className='footer-container flex gap-24 justify-center'>
             <div>
                 <h4 className='text-lg underline-offset-8 underline text-primary-site'>Información de la empresa</h4>
@@ -65,7 +59,7 @@ const Layout = ({children, page}) => {
                     <Link href="/carrito" className='hover:text-primary-site hover:cursor-pointer block'>Carrito</Link>
                 </ul>
             </div>
-            <div className='absolute bottom-3 right-12 text-white'>
+            <div className='absolute bottom-3 right-12 text-primary-light'>
                 Kashmir Lub
             </div>
             </div>

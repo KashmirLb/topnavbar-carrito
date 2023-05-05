@@ -15,7 +15,7 @@ const Carrito = () => {
   return (
     <Layout page={"Carrito"}>
       <header hidden><h1>Carrito</h1></header>
-      <main className='text-white pt-16 px-10'>
+      <main className='text-primary-light pt-16 px-10'>
         <div className="w-full p-10 pb-0">
           <h1 className="text-4xl text-primary-site">Mi Carrito</h1>
           <p className=" mt-5 mb-0">Revisa tu pedido</p>
@@ -46,9 +46,9 @@ const Carrito = () => {
                 </div>
                 <div className='w-full h-1/3 text-end'>
                   <div className="py-4 flex justify-end px-10 gap-5">
-                    <button className="bg-slate-800 hover:bg-slate-700 hover:text-primary-site flex gap-2 px-5 py-2 text-white rounded-md shadow-md mt-3">Ver Producto</button>
+                    <button className="bg-secondary-dark hover:bg-slate-700 hover:text-primary-site flex gap-2 px-5 py-2 text-primary-light rounded-md shadow-md mt-3">Ver Producto</button>
                     <button 
-                      className="bg-red-800 hover:bg-red-700 flex gap-2 px-5 py-2 text-white rounded-md shadow-md mt-3"
+                      className="bg-red-800 hover:bg-red-700 flex gap-2 px-5 py-2 text-primary-light rounded-md shadow-md mt-3"
                       onClick={()=>eliminarProducto(producto)}
                     >Eliminar</button>
                   </div>
@@ -79,7 +79,7 @@ const Carrito = () => {
                 <p className="text-2xl mt-auto">{!carrito || carrito?.length===0 ? 0 : carrito.reduce((total, prod)=> total+prod.precio, 0)}€</p>
               </div>
               <div className='flex justify-end pt-8'>
-                <button className='bg-primary-site w-44 h-12 text-black text-xl font-bold tracking-wider hover:bg-white uppercase'>
+                <button className='bg-primary-site w-44 h-12 text-black text-xl font-bold tracking-wider hover:bg-primary-light uppercase'>
                   Pagar
                 </button>
               </div>

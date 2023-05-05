@@ -55,7 +55,7 @@ const ProductLayout = ({categoria, productos}) => {
             )
 
   return (
-    <div className='p-5 pt-16 text-white remove-animation'>
+    <div className='p-5 pt-16 text-primary-light remove-animation'>
         <div className=' h-10 flex align-middle px-20 justify-between'>
             <Link className='text-xl flex align-middle my-auto gap-4' href="/productos">
                 <Image src="/left-arrow.png" height={15} width={15} alt="back arrow" className='my-auto' />
@@ -66,7 +66,7 @@ const ProductLayout = ({categoria, productos}) => {
                 <h1><span className='text-primary-site'>Categoría: </span>{categoria ? categoria : ""}</h1>
             </div>
         </div>
-        <div className='bg-slate-800 h-fit py-3 mt-3 mx-16 px-4 flex flex-wrap my-auto gap-5'>
+        <div className='bg-secondary-dark h-fit py-3 mt-3 mx-16 px-4 flex flex-wrap my-auto gap-5'>
             <div className='my-auto'>
                 <span className='pr-2 font-bold'>Buscar: </span>
                 <input 
@@ -98,7 +98,7 @@ const ProductLayout = ({categoria, productos}) => {
                     <option value="/productos/accesorios">Accesorios</option>
                 </select>
             </div>
-            <div className='flex my-auto '>
+            <div className='flex my-auto bg-slate-800 '>
                 <span className='font-bold pr-3'>Orden: </span>
                 <select className='text-black w-44 pl-2' onChange={e=>changeOrder(e)}>
                     <option value="marca">Por marca</option>

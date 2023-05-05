@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <Layout page={"Main Page"} >
      <HeaderImageRightTextAndButtonLeft headerItems={indexHeader} />
-     <main className='text-white'>
+     <main className='text-primary-light'>
       <LinkImageWithCaption links={linksImageCaption} />
       <BoxesImageCaptionText boxes={threeBoxes} />
       <TitleRowImagesWrap titleImages={titleAndImages}/>

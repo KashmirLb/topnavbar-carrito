@@ -14,15 +14,31 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       textColor: {
-        'primary-site': '#feb556'
+        'primary-site': 'var(--primary-site)',
+        'secondary-site': 'var(--secondary-site',
+        'background-site': 'var(--background-site)',
+        'primary-light': 'var(--primary-light)',
+        'primary-dark': 'var(--primary-dark)',
+        'secondary-light': 'var(--secondary-light)',
+        'secondary-dark': 'var(--secondary-dark)'
       },
       backgroundColor: {
-        'background-site': '#000',
-        'primary-site': '#feb556',
-        'secondary-site': '#F69E2A'
+        'primary-site': 'var(--primary-site)',
+        'secondary-site': 'var(--secondary-site',
+        'background-site': 'var(--background-site)',
+        'primary-light': 'var(--primary-light)',
+        'primary-dark': 'var(--primary-dark)',
+        'secondary-light': 'var(--secondary-light)',
+        'secondary-dark': 'var(--secondary-dark)'
       },
       borderColor: {
-        'primary-site': '#feb556'
+        'primary-site': 'var(--primary-site)',
+        'secondary-site': 'var(--secondary-site',
+        'background-site': 'var(--background-site)',
+        'primary-light': 'var(--primary-light)',
+        'primary-dark': 'var(--primary-dark)',
+        'secondary-light': 'var(--secondary-light)',
+        'secondary-dark': 'var(--secondary-dark)'
       },
       height: {
         'half-screen': '50vh',

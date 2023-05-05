@@ -14,7 +14,7 @@ const LinkImageWithCaption = ({links}) => {
    */
     
   return (
-    <section className='p-12 md:px-44 min-h-half-screen md:flex flex-wrap justify-center text-white gap-5'>
+    <section className='p-12 md:px-44 min-h-half-screen md:flex flex-wrap justify-center text-primary-light gap-5'>
       { !links || links.length === 0 ? <div>No hay enlaces</div>
         :
         links.map(link =>

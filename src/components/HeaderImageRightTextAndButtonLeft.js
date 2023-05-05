@@ -8,10 +8,10 @@ const HeaderImageRightTextAndButtonLeft = ({headerItems}) => {
   return (
     <header className='h-screen flex flex-col-reverse justify-start md:flex-row'>
       <div className='md:w-2/5 md:h-full h-1/2 md:pt-0 pt-10 md:flex flex-col align-middle justify-center pl-16'>
-        <h1 className='text-4xl font-semibold py-10 tracking-wide text-white'>
+        <h1 className='text-4xl font-semibold py-10 tracking-wide text-primary-light'>
           {text}
         </h1>
-        <button className='bg-primary-site hover:bg-white w-64 h-16 text-black text-3xl font-bold tracking-wider uppercase'>
+        <button className='bg-primary-site hover:bg-primary-light w-64 h-16 text-black text-3xl font-bold tracking-wider uppercase'>
           {buttonText}
         </button>
       </div>

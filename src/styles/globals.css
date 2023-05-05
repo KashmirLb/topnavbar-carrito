@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-site: #feb556;
+  --secondary-site: #F79C27;
+  --background-site: #000;
+  --primary-light: #fff;
+  --primary-dark: #000;
+  --secondary-light: #FFF7EB;
+  --secondary-dark: rgb(30 41 59);
+}
 
 @layer utilities {
   .scrollbar::-webkit-scrollbar {
@@ -9,12 +18,12 @@
   }
 
   .scrollbar::-webkit-scrollbar-track {
-    background: #feb556;
+    background: var(--primary-site);
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
     height: 2px;
-    background: black;
+    background: var(--primary-dark);
   }
 
   .scrollbar::-webkit-scrollbar-thumb:hover {
@@ -42,7 +51,7 @@
   align-items: center;
   height: 60px;
   width: 100%;
-  background: black;
+  background: var(--primary-dark);
   transition: transform 0.3s ease-out;
 }
 
@@ -70,7 +79,7 @@ nav a {
 }
 
 nav a:last-child {
-  background-color: #feb556;
+  background-color: var(--primary-site);
   height: 28px;
   transition: all 0.3s ease-out;
 }
@@ -78,7 +87,7 @@ nav a:last-child {
 nav a::after{
   content:'';
   display: block;
-  background: white;
+  background: var(--primary-light);
   height: 1px;
   width: 100%;
   transform-origin: left;
@@ -91,12 +100,12 @@ nav a:hover::after{
 }
 
 nav a:last-child:hover, .active-cart{
-  background-color: white !important;
+  background-color: var(--primary-light) !important;
 }
 
 .active-link::after{
   content:'';
-  background: white;
+  background: var(--primary-light);
   height: 1px;
   width: 100%;
   transform: scaleX(1);
@@ -107,7 +116,7 @@ section h2::after {
   margin-top: 10px;
   margin-bottom: 40px;
   display: block;
-  background-color: white;
+  background-color: var(--primary-light);
   height: 1px;
   width:50%;
   margin-left: 25%;
@@ -126,8 +135,8 @@ section h2::after {
 
 .footer-container{
   width: 80%;
-  border-right: 1px solid #feb556;
-  border-left: 1px solid #feb556;
+  border-right: 1px solid var(--primary-site);
+  border-left: 1px solid var(--primary-site);
 }
 
 @keyframes fade-in{

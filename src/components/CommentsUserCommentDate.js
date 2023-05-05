@@ -25,17 +25,17 @@ const CommentsUserCommentDate = ({userComments}) => {
   return (
     <section className='px-10 py-24'>
         <div className='flex w-full'>
-          <button className='text-4xl text-primary-site hover:text-white' onClick={()=>loadNextUserComment(false)}>{"<"}</button>
+          <button className='text-4xl text-primary-site hover:text-primary-light' onClick={()=>loadNextUserComment(false)}>{"<"}</button>
           <div className='comment-container px-10 justify-around flex flex-wrap h-96 overflow-hidden'>
             { !visibleUserComments ? <div></div> : 
               visibleUserComments.map( user =>{
                 return(
-                  <div className='text-white border-solid border-white border-2 p-5 comment-box h-96' key={generarId()}>
+                  <div className='text-primary-light border-solid border-primary-light border-2 p-5 comment-box h-96' key={generarId()}>
                     <div className="flex mb-5">
                       <Image src={user.avatar} height={50} width={50} alt="imagen del usuario"/>
                       <h3 className='my-auto ml-5'>{user.user}</h3>
                     </div>
-                    <p className='bg-slate-800 p-2 h-3/5 overflow-y-scroll scrollbar'>
+                    <p className='bg-secondary-dark p-2 h-3/5 overflow-y-scroll scrollbar'>
                         {user.comment}
                     </p>
                     <div className='mt-5'>{formatDate(user.date)}</div>
@@ -44,7 +44,7 @@ const CommentsUserCommentDate = ({userComments}) => {
               })
             }
           </div>
-          <button className='text-4xl text-primary-site hover:text-white' onClick={()=>loadNextUserComment(true)}>{">"}</button>
+          <button className='text-4xl text-primary-site hover:text-primary-light' onClick={()=>loadNextUserComment(true)}>{">"}</button>
         </div>
       </section>
   )
