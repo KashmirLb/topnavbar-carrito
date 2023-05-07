@@ -1,53 +1,53 @@
 import React from 'react'
 import Layout from '@/components/Layout'
 import ProductLayout from '@/components/ProductLayout'
+import axiosClient from '@/config/axiosClient'
+import { numberMaker } from '@/helpers'
 
-const Portatiles = () => {
-
-    const productosPortatiles = [
-        {
-            id: null,
-            titulo: "Asus XCV",
-            precio: 500,
-            imagen: "/productos/portatiles/portatil1.jpg",
-            categoria: "portatiles",
-            marca: "asus",
-            resumen: "Portatil asus decente"
-        },
-        {
-            id: null,
-            titulo: "Acer YUI",
-            precio: 385,
-            imagen: "/productos/portatiles/portatil2.jpg",
-            categoria: "portatiles",
-            marca: "acer",
-            resumen: "Portatil acer básico"
-        },
-        {
-            id: null,
-            titulo: "Toshiba GJK",
-            precio: 700,
-            imagen: "/productos/portatiles/portatil3.jpg",
-            categoria: "portatiles",
-            marca: "toshiba",
-            resumen: "Portatil toshiba muy potente"
-        },
-        {
-            id: null,
-            titulo: "MSI KHG",
-            precio: 1100,
-            imagen: "/productos/portatiles/portatil4.jpg",
-            categoria: "portatiles",
-            marca: "MSI",
-            resumen: "Portatil msi, lo mejor del mercado actual"
-        }
-    ]
+const Portatiles = ({results}) => {
 
   return (
     <Layout page={"Portátiles"}>
-        <ProductLayout categoria={"Portátiles"} productos={productosPortatiles}/>
+        <ProductLayout categoria={"Portátiles"} productos={results}/>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  
+    let results = [];
+
+    const tienda = "easy-gaming"
+
+    try{
+      const { data } = await axiosClient.post("productos/get-products", { tienda });
+
+      data.data.map( product =>{
+
+        if(product._fieldsProto?.categoria?.stringValue.toLowerCase() === "portatiles"){
+          let newProduct = {
+              id: product._ref?._path?.segments[product._ref?._path?.segments?.length-1] ?? null,
+              titulo: product._fieldsProto?.titulo?.stringValue ?? "",
+              precio: numberMaker(product._fieldsProto?.precio?.integerValue) ?? 0,
+              imagen: product._fieldsProto?.imagen?.stringValue ?? "",
+              categoria: product._fieldsProto?.categoria?.stringValue ?? "" ?? "",
+              marca: product._fieldsProto?.marca?.stringValue ?? "" ?? "",
+              resumen: product._fieldsProto?.resumen?.stringValue ?? ""
+          }
+          results.push(newProduct)
+        }
+      })
+
+   }
+    catch{
+      results.push({ msg: "No hay datos" })
+    }
+    
+  return {
+    props:{
+      results
+    }
+  }
 }
 
 export default Portatiles

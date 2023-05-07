@@ -1,53 +1,54 @@
 import React from 'react'
 import Layout from '@/components/Layout'
 import ProductLayout from '@/components/ProductLayout'
+import axiosClient from '@/config/axiosClient'
+import { numberMaker } from '@/helpers'
 
-const Componentes = () => {
-
-    const productosComponentes = [
-        {
-            id: null,
-            titulo: "CPU i5",
-            precio: 500,
-            imagen: "/productos/componentes/cpu1.jpg",
-            categoria: "componentes",
-            marca: "Intel",
-            resumen: "CPU intel i5"
-        },
-        {
-            id: null,
-            titulo: "CPU i7",
-            precio: 700,
-            imagen: "/productos/componentes/cpu2.jpg",
-            categoria: "componentes",
-            marca: "Intel",
-            resumen: "CPU intel i7"
-        },
-        {
-            id: null,
-            titulo: "Tarjeta Gráfica GTX 1080",
-            precio: 1000,
-            imagen: "/productos/componentes/gpu1.jpg",
-            categoria: "componentes",
-            marca: "nVidia",
-            resumen: "Tarjeta gráfica más potente actualmente"
-        },
-        {
-            id: null,
-            titulo: "Tarjeta Gráfica Gallardo",
-            precio: 600,
-            imagen: "/productos/componentes/gpu2.jpg",
-            categoria: "componentes",
-            marca: "nVidia",
-            resumen: "Tarjeta grafica Gallardo"
-        }
-       ]
+const Componentes = ({results}) => {
 
   return (
     <Layout page={"Componentes"}>
-        <ProductLayout categoria={"Componentes"} productos={productosComponentes}/>
+        <ProductLayout categoria={"Componentes"} productos={results}/>
     </Layout>
   )
+}
+
+
+export async function getStaticProps() {
+  
+    let results = [];
+
+    const tienda = "easy-gaming"
+
+    try{
+      const { data } = await axiosClient.post("productos/get-products", { tienda });
+
+      data.data.map( product =>{
+
+        if(product._fieldsProto?.categoria?.stringValue.toLowerCase() === "componentes"){
+          let newProduct = {
+              id: product._ref?._path?.segments[product._ref?._path?.segments?.length-1] ?? null,
+              titulo: product._fieldsProto?.titulo?.stringValue ?? "",
+              precio: numberMaker(product._fieldsProto?.precio?.integerValue) ?? 0,
+              imagen: product._fieldsProto?.imagen?.stringValue ?? "",
+              categoria: product._fieldsProto?.categoria?.stringValue ?? "" ?? "",
+              marca: product._fieldsProto?.marca?.stringValue ?? "" ?? "",
+              resumen: product._fieldsProto?.resumen?.stringValue ?? ""
+          }
+          results.push(newProduct)
+        }
+      })
+
+   }
+    catch{
+      results.push({ msg: "No hay datos" })
+    }
+    
+  return {
+    props:{
+      results
+    }
+  }
 }
 
 export default Componentes

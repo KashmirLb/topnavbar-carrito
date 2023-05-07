@@ -21,7 +21,7 @@ const ProductGrid = ({productos}) => {
                     <div key={generarId()} className='h-400px w-80 m-5 rounded-md hover:bg-secondary-dark'>
                         <div className='h-1/2'>
                             <div className='flex flex-col justify-center w-full h-full'>
-                                <Image src={producto.imagen} height={200} width={200} style={{objectFit: "contain"}} className='mx-auto max-h-48' alt={producto.titulo}/>
+                                <Image src={producto.imagen} height={200} width={200} style={{objectFit: "contain"}} className='mx-auto max-h-48 w-auto max-w-product' alt={producto.titulo}/>
                             </div>
                         </div>
                         <div className='px-4 py-1 pb-4 h-1/2 flex flex-col justify-between'>

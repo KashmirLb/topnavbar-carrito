@@ -18,3 +18,16 @@ export const formatDate = date => {
     }
     return newDate.toLocaleDateString('en-EN', options).substring(0,1).toLocaleUpperCase() + newDate.toLocaleDateString('en-EN', options).substring(1)
 }
+
+export const numberMaker = number =>{
+    let newString = number.replace(",", ".")
+
+    return parseFloat(newString)
+}
+
+export const getLastOfRoute = route => {
+
+    let splitRoute = route.split("/")
+
+    return splitRoute[splitRoute.length-1]
+}

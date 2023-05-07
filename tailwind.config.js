@@ -51,6 +51,9 @@ module.exports = {
       minHeight: {
         'half-screen': '50vh'
       },
+      maxWidth: {
+        'product' : '280px'
+      },
       boxShadow: {
         'product-card': '3px 3px 3px 2px rgb(15 23 42);'
       }
