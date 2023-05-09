@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout'
 import React from 'react'
 import ProductLayout from '@/components/ProductLayout'
-import { axiosProductos } from '@/config/axiosProductos'
+import { axiosProductos, headerConfig } from '@/config/axiosClient'
 import { numberMaker } from '@/helpers'
 
 const Ordenadores = ({results}) => {

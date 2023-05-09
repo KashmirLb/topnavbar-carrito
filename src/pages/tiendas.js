@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '@/components/Layout'
-import { axiosProductosDev, headerConfig } from '@/config/axiosClient'
+import { axiosProductos, headerConfig } from '@/config/axiosClient'
 import bcrypt from 'bcrypt'
 
 
@@ -35,7 +35,7 @@ export async function getServerSideProps() {
     const salt = await bcrypt.genSalt(10)
     const cryptedKey = await bcrypt.hash(process.env.PRODUCTOS_KEY, salt)
 
-    const { data } = await axiosProductosDev("/productos/get-connection", headerConfig(cryptedKey))
+    const { data } = await axiosProductos("/productos/get-connection", headerConfig(cryptedKey))
 
     results.push(data)
 
