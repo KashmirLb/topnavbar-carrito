@@ -4,11 +4,11 @@ import React from 'react'
 import { axiosProductos, headerConfig } from '@/config/axiosClient'
 import { numberMaker } from '@/helpers'
 
-const Accesorios = () => {
+const Accesorios = ({results}) => {
 
   return (
     <Layout page={"Accesorios"}>
-        <ProductLayout categoria={"Accesorios"} productos={productosAccesorios}/>
+        <ProductLayout categoria={"Accesorios"} productos={results}/>
     </Layout>
   )
 }
