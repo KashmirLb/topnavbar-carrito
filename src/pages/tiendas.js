@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '@/components/Layout'
 import axiosClient from '@/config/axiosClient'
+import axios from 'axios'
 
 
 const Tiendas = ({results}) => {
@@ -30,7 +31,7 @@ export async function getServerSideProps() {
   let results = [];
 
   try{
-    const { data } = await axiosClient.get("productos/get-connection");
+    const { data } = await axios.get("http://localhost:4000/api/productos/get-connection")
 
    
     results.push(data)
@@ -40,11 +41,11 @@ export async function getServerSideProps() {
     results.push({ msg: "No hay datos" })
   }
   
-return {
-  props:{
-    results
+  return {
+    props:{
+      results
+    }
   }
-}
 }
 
 export default Tiendas
