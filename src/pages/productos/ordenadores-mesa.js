@@ -25,7 +25,7 @@ export async function getStaticProps() {
 
       const salt = await bcrypt.genSalt(10)
       const cryptedKey = await bcrypt.hash(process.env.PRODUCTOS_KEY, salt)
-      const { data } = await axiosProductos.post("productos/get-products", headerConfig(cryptedKey), { tienda });
+      const { data } = await axiosProductos.post("productos/get-products", { tienda }, headerConfig(cryptedKey));
 
       data.data.map( product =>{
 
