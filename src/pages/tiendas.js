@@ -2,7 +2,9 @@ import React from 'react'
 import Layout from '@/components/Layout'
 
 
-const Tiendas = () => {
+const Tiendas = ({results}) => {
+
+  console.log(results)
   return (
     <Layout page={"Tiendas"} >
       <header hidden><h1>Carrito</h1></header>
@@ -10,7 +12,7 @@ const Tiendas = () => {
         <div className='md:w-2/3 w-full pt-5'>
           <div className='border-solid border border-primary-site p-5'> 
             filter component 
-            
+
           </div> 
         </div>
         <div className='md:w-2/3 w-full border-solid border border-primary-site p-5 h-96 my-10'> map component </div>
@@ -20,6 +22,28 @@ const Tiendas = () => {
       </main>
     </Layout>
   )
+}
+
+export async function getServerSideProps() {
+  
+  let results = [];
+
+  try{
+    const { data } = await axiosClient.get("productos/get-connection");
+
+   
+    results.push(data)
+
+ }
+  catch{
+    results.push({ msg: "No hay datos" })
+  }
+  
+return {
+  props:{
+    results
+  }
+}
 }
 
 export default Tiendas
