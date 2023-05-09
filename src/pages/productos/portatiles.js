@@ -6,8 +6,7 @@ import bcrypt from 'bcrypt'
 import { numberMaker } from '@/helpers'
 
 const Portatiles = ({results}) => {
-
-  console.log(results)
+  
   return (
     <Layout page={"Portátiles"}>
         <ProductLayout categoria={"Portátiles"} productos={results}/>
