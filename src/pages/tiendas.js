@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from '@/components/Layout'
+import axiosClient from '@/config/axiosClient'
 
 
 const Tiendas = ({results}) => {
