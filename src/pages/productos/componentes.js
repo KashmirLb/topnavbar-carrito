@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '@/components/Layout'
 import ProductLayout from '@/components/ProductLayout'
-import axiosClient from '@/config/axiosClient'
+import { axiosProductos } from '@/config/axiosProductos'
 import { numberMaker } from '@/helpers'
 
 const Componentes = ({results}) => {
@@ -21,7 +21,10 @@ export async function getStaticProps() {
     const tienda = "easy-gaming"
 
     try{
-      const { data } = await axiosClient.post("productos/get-products", { tienda });
+
+      const salt = await bcrypt.genSalt(10)
+      const cryptedKey = await bcrypt.hash(process.env.PRODUCTOS_KEY, salt)
+      const { data } = await axiosProductos.post("productos/get-products", headerConfig(cryptedKey), { tienda });
 
       data.data.map( product =>{
 
