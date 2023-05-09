@@ -31,7 +31,7 @@ export async function getServerSideProps() {
   let results = [];
 
   try{
-    const { data } = await axios.get("http://localhost:4000/api/productos/get-connection")
+    const { data } = await axiosClient.get("/productos/get-connection")
 
    
     results.push(data)
