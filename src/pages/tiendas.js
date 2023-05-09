@@ -35,7 +35,7 @@ export async function getServerSideProps() {
     const salt = await bcrypt.genSalt(10)
     const cryptedKey = await bcrypt.hash(process.env.PRODUCTOS_KEY, salt)
 
-    const { data } = await axiosProductos("/productos/get-connection", headerConfig(cryptedKey))
+    const { data } = await axiosProductos.get("/productos/get-connection", headerConfig(cryptedKey))
 
     results.push(data)
 

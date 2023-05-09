@@ -2,10 +2,12 @@ import React from 'react'
 import Layout from '@/components/Layout'
 import ProductLayout from '@/components/ProductLayout'
 import { axiosProductos, headerConfig } from '@/config/axiosClient'
+import bcrypt from 'bcrypt'
 import { numberMaker } from '@/helpers'
 
 const Portatiles = ({results}) => {
 
+  console.log(results)
   return (
     <Layout page={"Portátiles"}>
         <ProductLayout categoria={"Portátiles"} productos={results}/>
@@ -17,13 +19,13 @@ export async function getStaticProps() {
   
     let results = [];
 
-    const tienda = "easy-gaming"
-
+    
     try{
+      const tienda = "easy-gaming"
 
       const salt = await bcrypt.genSalt(10)
       const cryptedKey = await bcrypt.hash(process.env.PRODUCTOS_KEY, salt)
-      const { data } = await axiosProductos.post("productos/get-products", { tienda }, headerConfig(cryptedKey));
+      const { data } = await axiosProductos.post("/productos/get-products", { tienda } , headerConfig(cryptedKey));
 
       data.data.map( product =>{
 
@@ -40,7 +42,6 @@ export async function getStaticProps() {
           results.push(newProduct)
         }
       })
-
    }
     catch{
       results.push({ msg: "No hay datos" })

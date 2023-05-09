@@ -2,6 +2,7 @@ import Layout from '@/components/Layout'
 import ProductLayout from '@/components/ProductLayout'
 import React from 'react'
 import { axiosProductos, headerConfig } from '@/config/axiosClient'
+import bcrypt from 'bcrypt'
 import { numberMaker } from '@/helpers'
 
 const Accesorios = ({results}) => {
@@ -24,7 +25,7 @@ export async function getStaticProps() {
 
       const salt = await bcrypt.genSalt(10)
       const cryptedKey = await bcrypt.hash(process.env.PRODUCTOS_KEY, salt)
-      const { data } = await axiosProductos.post("productos/get-products", { tienda }, headerConfig(cryptedKey));
+      const { data } = await axiosProductos.post("/productos/get-products", { tienda }, headerConfig(cryptedKey));
 
       data.data.map( product =>{
 
