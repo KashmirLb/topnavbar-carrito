@@ -6,7 +6,6 @@ import bcrypt from 'bcrypt'
 
 const Tiendas = ({results}) => {
 
-  console.log(results)
   return (
     <Layout page={"Tiendas"} >
       <header hidden><h1>Carrito</h1></header>
