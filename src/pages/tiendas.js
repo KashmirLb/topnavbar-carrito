@@ -1,10 +1,7 @@
 import React from 'react'
 import Layout from '@/components/Layout'
-import { axiosProductos, headerConfig } from '@/config/axiosClient'
-import bcrypt from 'bcrypt'
 
-
-const Tiendas = ({results}) => {
+const Tiendas = () => {
 
   return (
     <Layout page={"Tiendas"} >
@@ -23,31 +20,6 @@ const Tiendas = ({results}) => {
       </main>
     </Layout>
   )
-}
-
-export async function getServerSideProps() {
-  
-  let results = [];
-
-  try{
-
-    const salt = await bcrypt.genSalt(10)
-    const cryptedKey = await bcrypt.hash(process.env.PRODUCTOS_KEY, salt)
-
-    const { data } = await axiosProductos.get("/productos/get-connection", headerConfig(cryptedKey))
-
-    results.push(data)
-
- }
-  catch{
-    results.push({ msg: "No hay datos" })
-  }
-  
-  return {
-    props:{
-      results
-    }
-  }
 }
 
 export default Tiendas
