@@ -3,13 +3,20 @@ import Image from 'next/image'
 import React from 'react'
 import useData from '@/Hooks/useData'
 import { generarId } from '@/helpers'
+import { useRouter } from 'next/router'
 
 const Carrito = () => {
 
-  const { carrito, setCarrito } = useData()
+  const { carrito, setCarrito, setProductoSeleccionado } = useData()
+  const router = useRouter();
 
   const eliminarProducto = producto => {
     setCarrito(actualCarrito => actualCarrito.filter( prod => prod.id !== producto.id))
+  }
+
+  const verProducto = producto => {
+    setProductoSeleccionado(producto)
+    router.push("productos/detalles")
   }
 
   return (
@@ -46,7 +53,9 @@ const Carrito = () => {
                 </div>
                 <div className='w-full h-1/3 text-end'>
                   <div className="py-4 flex justify-end px-10 gap-5">
-                    <button className="bg-secondary-dark hover:bg-secondary-dark hover:text-primary-site flex gap-2 px-5 py-2 text-primary-light rounded-md shadow-md mt-3">Ver Producto</button>
+                    <button className="bg-secondary-dark hover:bg-secondary-dark hover:text-primary-site flex gap-2 px-5 py-2 text-primary-light rounded-md shadow-md mt-3"
+                      onClick={()=>verProducto(producto)}
+                    >Ver Producto</button>
                     <button 
                       className="bg-red-800 hover:bg-red-700 flex gap-2 px-5 py-2 text-primary-light rounded-md shadow-md mt-3"
                       onClick={()=>eliminarProducto(producto)}

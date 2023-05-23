@@ -1,15 +1,25 @@
 import useData from '@/Hooks/useData'
 import { generarId } from '@/helpers'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React from 'react'
+import Toast from './Toast'
 
 const ProductGrid = ({productos}) => {
 
-    const { setCarrito } = useData()
+    const { setCarrito, setProductoSeleccionado, agregarToast } = useData()
+
+    const router = useRouter();
 
     const agregarProducto = producto =>{
         producto.id = generarId()
         setCarrito(c => [...c, {...producto}])
+        agregarToast("Agregado a carrito")
+    }
+
+    const verDetalle = producto =>{
+        setProductoSeleccionado(producto)
+        router.push("detalles")
     }
 
   return (
@@ -31,7 +41,9 @@ const ProductGrid = ({productos}) => {
                                 <p className='text-primary-site text-lg mt-2'>{producto.precio} €</p>
                             </div>
                             <div className='flex gap-2 text-end'>
-                                <button className='w-full border py-1 hover:border-primary-site hover:text-primary-site'>Ver</button>
+                                <button className='w-full border py-1 hover:border-primary-site hover:text-primary-site'
+                                    onClick={()=>verDetalle(producto)}
+                                >Ver</button>
                                 <button 
                                     className='w-full border py-1 hover:border-primary-site hover:text-primary-site'
                                     onClick={()=>agregarProducto(producto)}
@@ -42,6 +54,7 @@ const ProductGrid = ({productos}) => {
                 )
             })
         }
+                <Toast/>
     </div>
   )
 }

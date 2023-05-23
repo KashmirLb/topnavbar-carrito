@@ -12,7 +12,7 @@ module.exports = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'nonce-ABC123'; style-src 'self' 'sha256-DEFG456'; frame-ancestors 'self';",
+            value: "default-src 'self'; script-src 'self' 'nonce-gDRGUOpOC-LIAQdoLx71ykxbHLxzahlMoGzQ3O-Fpeo'; style-src 'self' 'sha256-1yXoDkopPdM1MaX0oJCekyQXEnZXj1CPs-guuRaRElI'; frame-ancestors 'self';",
           },
           {
             key: 'X-Frame-Options',
