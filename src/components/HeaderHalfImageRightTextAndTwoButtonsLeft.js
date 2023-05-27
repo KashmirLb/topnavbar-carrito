@@ -1,7 +1,23 @@
 import Image from 'next/image'
-import React from 'react'
 
 const HeaderHalfImageRightTextAndTwoButtonsLeft = ({headerItems}) => {
+
+  /**
+   * 
+   * Debe agregarse fuera del "main", en la raíz o Layout de la página.
+   * 
+   ***
+   * 
+   * @param headerItems: {
+   * 
+   * text
+   * firstButton
+   * secondButton
+   * image
+   * imageDescription
+   * 
+   * }
+   */
 
     const { text, firstButton, secondButton, image, imageDescription } = headerItems
 

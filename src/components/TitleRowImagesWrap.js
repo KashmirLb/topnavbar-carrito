@@ -1,5 +1,3 @@
-import { generarId } from '@/helpers'
-import React from 'react'
 import Image from 'next/image'
 
 const TitleRowImagesWrap = ({titleImages}) => {
@@ -7,9 +5,19 @@ const TitleRowImagesWrap = ({titleImages}) => {
   const { title, images } = titleImages
   /**
    * 
-   * (string) title : title
-   * (array)  images: image, imageDescription
+   * Sección que debe introducirse en el <main> de la página.
    * 
+   ***
+   * 
+   * @param titleImages: {
+   * 
+   * title
+   * images[]: {
+   *            id
+   *            image
+   *            imageDescription
+   *            }
+   * }
    */
   return (
     <section className='md:px-80 px-10 py-24'>
@@ -18,7 +26,7 @@ const TitleRowImagesWrap = ({titleImages}) => {
           {
             !images || images.length==0 ? <div></div> :
               images.map(image =>
-                <Image src={image.image} height={150} width={150} className='mx-auto my-2' alt={image.imageDescription} key={generarId()}/>
+                <Image src={image.image} height={150} width={150} className='mx-auto my-2' alt={image.imageDescription} key={image.id}/>
                 )
           }
         </div>

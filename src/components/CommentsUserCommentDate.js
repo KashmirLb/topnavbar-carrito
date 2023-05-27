@@ -4,6 +4,24 @@ import Image from 'next/image'
 
 const CommentsUserCommentDate = ({userComments}) => {
 
+
+  /**
+   * 
+   * Sección que debe introducirse en el <main> de la página.
+   * 
+   *** 
+   * 
+   * @param userComments[]: {
+   * 
+   * id
+   * user
+   * avatar
+   * comment
+   * date
+   * 
+   * }
+   */
+
     const [ visibleUserComments, setVisibleUserComments ] = useState([])
 
     useEffect(()=>{
@@ -30,7 +48,7 @@ const CommentsUserCommentDate = ({userComments}) => {
             { !visibleUserComments ? <div></div> : 
               visibleUserComments.map( user =>{
                 return(
-                  <div className='text-primary-light border-solid border-primary-light border-2 p-5 comment-box h-96' key={generarId()}>
+                  <div className='text-primary-light border-solid border-primary-light border-2 p-5 comment-box h-96' key={user.id}>
                     <div className="flex mb-5">
                       <Image src={user.avatar} height={50} width={50} alt="imagen del usuario"/>
                       <h3 className='my-auto ml-5'>{user.user}</h3>
@@ -38,7 +56,7 @@ const CommentsUserCommentDate = ({userComments}) => {
                     <p className='bg-secondary-dark p-2 h-3/5 overflow-y-scroll scrollbar'>
                         {user.comment}
                     </p>
-                    <div className='mt-5'>{formatDate(user.date)}</div>
+                    <div className='mt-5'>{user.date}</div>
                   </div>
                 )
               })

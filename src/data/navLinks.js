@@ -1,20 +1,26 @@
+import { generarId } from "@/helpers"
+
 export const navLinks = [
     {
+        id: generarId(),
         link: "/",
         page: "Main Page",
         text: "Inicio"
     },
     {
+        id: generarId(),
         link: "/productos",
         page: "Productos",
         text: "Productos"
     },
     {
+        id: generarId(),
         link: "/tiendas",
         page: "Tiendas",
         text: "Tiendas"
     },
     {
+        id: generarId(),
         link: "/contacto",
         page: "Contacto",
         text: "Contacto"

@@ -3,6 +3,16 @@ import { useForm, ValidationError } from '@formspree/react';
 
 const FormEmailAndMessage = ({formLink}) => {
 
+  /**
+   * 
+   * Debe introducirse en un bloque con un tamaño fijo
+   * 
+   ***
+   *
+   * @param formLink: string obtenido de la cuenta Formik para identificar el formulario.
+   * 
+   */
+
     const [state, handleSubmit] = useForm(formLink);
         
     if (state.succeeded) {

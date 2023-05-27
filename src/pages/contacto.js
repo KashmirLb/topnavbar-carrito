@@ -1,10 +1,8 @@
 import Layout from '@/components/Layout'
-import Image from 'next/image'
 import React from 'react'
-import { useForm, ValidationError } from '@formspree/react';
 import FormEmailAndMessage from '@/components/FormEmailAndMessage';
 import IconLeftTextRight from '@/components/IconLeftTextRight';
-import contatInfo from '@/data/contatInfo';
+import contactInfo from '@/data/contactInfo';
 
 const Contacto = () => {
   return (
@@ -12,7 +10,7 @@ const Contacto = () => {
       <header hidden><h1>Contacto</h1></header>
       <main>
         <div className='p-40 pb-32 text-primary-light md:flex gap-10'>
-          <IconLeftTextRight iconText={contatInfo} />
+          <IconLeftTextRight iconText={contactInfo} />
           <div className='lg:w-2/4 w-full'>
             <FormEmailAndMessage formLink={"xwkjyovd"} />
           </div>

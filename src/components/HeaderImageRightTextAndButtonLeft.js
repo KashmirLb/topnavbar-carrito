@@ -1,7 +1,22 @@
-import React from 'react'
-import Image
- from 'next/image'
+import Image from 'next/image'
+
 const HeaderImageRightTextAndButtonLeft = ({headerItems}) => {
+
+    /**
+   * 
+   * Debe agregarse fuera del "main", en la raíz o Layout de la página.
+   * 
+   ***
+   * 
+   * @param headerItems: {
+   * 
+   * text
+   * buttonText
+   * image
+   * imageDescription
+   * 
+   * }
+   */
 
     const { text, buttonText, image, imageDescription} = headerItems
 

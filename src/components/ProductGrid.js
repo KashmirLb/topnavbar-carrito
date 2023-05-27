@@ -1,5 +1,4 @@
 import useData from '@/Hooks/useData'
-import { generarId } from '@/helpers'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -7,9 +6,49 @@ import Toast from './Toast'
 
 const ProductGrid = ({productos}) => {
 
+    /**
+     * 
+     * Componente usado exclusivamente con la API productos.
+     * 
+     * Debe situarse en el "main" de la página.
+     * 
+     * Trabaja con un contexto de carrito y permite agregar el producto seleccionado a él.
+     * 
+     * Ver Producto enlaza con una página "detalle". La página "detalle" debe estar disponible o se debe cambiar la función.
+     * 
+     * Se debe instalar el componente Toast:  npm install --save react-toastify
+     * 
+     * @param productos[]: {
+     * 
+     * titulo
+     * resumen
+     * precio
+     * imagen
+     * 
+     * }
+     * 
+     * @param setCarrito: function()
+     * Función que agrega productos a la cesta de la web.
+     * 
+     * @param setProductoSeleccionado: function()
+     * Función que guarda el producto que se ha seleccionado del grid.
+     * 
+     * @param agregarToast: function('string')
+     * Función que agregará un texto al Toast de la página.
+     */
+
+
+    // Parámetros pasados a través del Hook useData(), contexto de la página.
+    // Cambiar en caso de que se reciban los parámetros de otro Hook o como props en el componente.
     const { setCarrito, setProductoSeleccionado, agregarToast } = useData()
 
     const router = useRouter();
+
+    const generarId = () =>{
+        const random = Math.random().toString(36).substring(2)
+        const randomDate= Date.now().toString()
+        return random+randomDate
+    }
 
     const agregarProducto = producto =>{
         producto.id = generarId()
@@ -54,7 +93,7 @@ const ProductGrid = ({productos}) => {
                 )
             })
         }
-                <Toast/>
+        <Toast/>
     </div>
   )
 }

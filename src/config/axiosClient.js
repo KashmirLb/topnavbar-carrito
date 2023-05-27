@@ -1,4 +1,13 @@
 import axios from "axios";
+/**
+ * 
+ * Instalar axios previamente:
+ * npm i axios
+ * 
+ * Agregar funciones según componente funcional a usar.
+ * 
+ * 
+ */
 
 export const headerConfig = token =>{
     return(

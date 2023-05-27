@@ -30,9 +30,9 @@ const Layout = ({children, page}) => {
             <div className="logo-container" onClick={()=>setMenuShows(currentMenu=> !currentMenu)}> 
                 <Image src="/easy-gaming.png" alt="easy-gaming logo" height={35} width={172}/>
             </div>
-            <div className={`top-bar ${!menuShows ? 'bar-hidden' : ''}`}>
-                <NavBarLinksAndCart links={navLinks} cart={carritoLink} currentPage={page}/>
-            </div>
+
+                <NavBarLinksAndCart links={navLinks} cart={carritoLink} menuShows={menuShows} currentPage={page}/>
+
             <div className='page-container'>
                 {children}
             </div>
