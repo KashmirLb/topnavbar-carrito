@@ -112,22 +112,6 @@ nav a:last-child:hover, .active-cart{
   transform: scaleX(1);
 }
 
-section h2::after {
-  content: '';
-  margin-top: 10px;
-  margin-bottom: 40px;
-  display: block;
-  background-color: var(--primary-light);
-  height: 1px;
-  width:50%;
-  margin-left: 25%;
-}
-
-.comment-box{
-  width: 350px;
-  margin: 0px 50px;
-}
-
 .page-container{
   animation-name: fade-in;
   animation-duration: .3s;
@@ -138,17 +122,6 @@ section h2::after {
   width: 80%;
   border-right: 1px solid var(--primary-site);
   border-left: 1px solid var(--primary-site);
-}
-
-.titulo-caracteristicas::after {
-  content: '';
-  margin-top: 10px;
-  margin-bottom: 40px;
-  display: block;
-  background-color: var(--primary-site);
-  height: 1px;
-  width:50%;
-  margin-left: 25%;
 }
 
 .toast-box{
