@@ -20,10 +20,9 @@ export const headerConfig = token =>{
     )
 }
 
+// EJEMPLO:
+/*
 export const axiosProductos = axios.create({
     baseURL: `${process.env.PRODUCTOS_LINK}/api`
 })
-
-export const axiosProductosDev = axios.create({
-    baseURL: `http://localhost:4000/api`
-})
+*/

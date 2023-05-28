@@ -28,7 +28,7 @@ const Layout = ({children, page}) => {
             </Head>
 
             <div className="logo-container" onClick={()=>setMenuShows(currentMenu=> !currentMenu)}> 
-                <Image src="/easy-gaming.png" alt="easy-gaming logo" height={35} width={172}/>
+                { /* LOGO IMAGE HERE */ }
             </div>
 
                 <NavBarLinksAndCart links={navLinks} cart={carritoLink} menuShows={menuShows} currentPage={page}/>
@@ -42,21 +42,19 @@ const Layout = ({children, page}) => {
             <div>
                 <h4 className='text-lg underline-offset-8 underline text-primary-site'>Información de la empresa</h4>
                 <ul className='p-5 pl-0'>
-                    <li>Fascination Street, 4</li>
-                    <li>Cure City</li>
-                    <li>019890</li>
-                    <li>info@easy-gaming.com</li>
-                    <li>999 999 999</li>
+                    { /* INFORMACIÓN DE LA EMPRESASA AQUI <li></li> */ }
                 </ul>
             </div>
             <div>
                 <h4 className='text-lg underline-offset-8 underline text-primary-site'>Enlaces de la página</h4>
                 <ul className='p-5 pl-0'>
-                    <Link href="/" className='hover:text-primary-site hover:cursor-pointer block'>Inicio</Link>
-                    <Link href="/productos" className='hover:text-primary-site hover:cursor-pointer block'>Productos</Link>
-                    <Link href="/tiendas" className='hover:text-primary-site hover:cursor-pointer block'>Tiendas</Link>
-                    <Link href="/contacto" className='hover:text-primary-site hover:cursor-pointer block'>Contacto</Link>
-                    <Link href="/carrito" className='hover:text-primary-site hover:cursor-pointer block'>Carrito</Link>
+
+                    { !navLinks ||navLinks.length===0 ? <div></div>
+                    :
+                        navLinks.map(link =>(
+                            <Link href={link.link} className='hover:text-primary-site hover:cursor-pointer block' key={link.id}>{link.text}</Link>
+                        ))
+                    }
                 </ul>
             </div>
             <div className='absolute bottom-3 right-12 text-primary-light'>
